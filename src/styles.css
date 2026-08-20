@@ -140,5 +140,118 @@
   body {
     background-color: var(--color-background);
     color: var(--color-foreground);
+    font-family: var(--font-body);
+  }
+
+  h1,
+  h2,
+  h3,
+  h4 {
+    font-family: var(--font-display);
+    letter-spacing: -0.02em;
   }
 }
+
+/* ---- Shiatsu design system ---- */
+:root {
+  --font-display: "Cormorant Garamond", Georgia, serif;
+  --font-body: "Karla", system-ui, sans-serif;
+
+  --background: oklch(0.99 0.004 95);
+  --foreground: oklch(0.19 0.01 60);
+  --card: oklch(0.985 0.005 95);
+  --card-foreground: oklch(0.19 0.01 60);
+  --popover: oklch(0.99 0.004 95);
+  --popover-foreground: oklch(0.19 0.01 60);
+  --primary: oklch(0.45 0.055 190);
+  --primary-foreground: oklch(0.99 0.004 95);
+  --secondary: oklch(0.94 0.015 85);
+  --secondary-foreground: oklch(0.25 0.015 70);
+  --muted: oklch(0.955 0.008 90);
+  --muted-foreground: oklch(0.52 0.012 75);
+  --accent: oklch(0.9 0.03 85);
+  --accent-foreground: oklch(0.25 0.02 70);
+  --border: oklch(0.9 0.01 85);
+  --input: oklch(0.9 0.01 85);
+  --ring: oklch(0.45 0.055 190);
+  --ink: oklch(0.14 0.008 60);
+  --ink-foreground: oklch(0.97 0.006 90);
+  --sand: oklch(0.93 0.025 80);
+}
+
+@theme inline {
+  --color-ink: var(--ink);
+  --color-ink-foreground: var(--ink-foreground);
+  --color-sand: var(--sand);
+  --font-display: var(--font-display);
+  --font-body: var(--font-body);
+}
+
+/* Intro yin-yang reveal */
+@keyframes yy-open-dark {
+  0% {
+    transform: translate3d(0, 0, 0) rotate(0deg);
+  }
+  100% {
+    transform: translate3d(-62vw, -22vh, 0) rotate(-14deg);
+  }
+}
+@keyframes yy-open-light {
+  0% {
+    transform: translate3d(0, 0, 0) rotate(0deg);
+  }
+  100% {
+    transform: translate3d(62vw, 22vh, 0) rotate(14deg);
+  }
+}
+@keyframes yy-veil {
+  0%,
+  55% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+.yy-half {
+  animation-duration: 3s;
+  animation-timing-function: cubic-bezier(0.65, 0, 0.2, 1);
+  animation-fill-mode: forwards;
+  transform-origin: 50% 50%;
+}
+.yy-dark {
+  animation-name: yy-open-dark;
+}
+.yy-light {
+  animation-name: yy-open-light;
+}
+.yy-veil {
+  animation: yy-veil 3.4s ease-in-out forwards;
+}
+
+/* Scroll reveal */
+.reveal {
+  opacity: 0;
+  transform: translateY(24px);
+  transition:
+    opacity 0.9s cubic-bezier(0.22, 1, 0.36, 1),
+    transform 0.9s cubic-bezier(0.22, 1, 0.36, 1);
+}
+.reveal.is-visible {
+  opacity: 1;
+  transform: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .yy-half,
+  .yy-veil {
+    animation-duration: 0.4s;
+  }
+  .reveal {
+    transition: none;
+    opacity: 1;
+    transform: none;
+  }
+}
+
