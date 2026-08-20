@@ -35,9 +35,12 @@ export function YinYangIntro() {
         >
           <path
             d="M50 0 A50 50 0 0 0 50 100 A25 25 0 0 0 50 50 A25 25 0 0 1 50 0 Z"
-            fill="#000000"
+            fill="#080808"
+            stroke="#ffffff"
+            strokeWidth="0.7"
+            strokeOpacity="0.45"
           />
-          <circle cx="50" cy="25" r="6" fill="#000000" />
+          <circle cx="50" cy="25" r="6" fill="#ffffff" />
         </svg>
         {/* light half */}
         <svg
@@ -48,7 +51,8 @@ export function YinYangIntro() {
             d="M50 0 A50 50 0 0 1 50 100 A25 25 0 0 1 50 50 A25 25 0 0 0 50 0 Z"
             fill="#ffffff"
           />
-          <circle cx="50" cy="75" r="6" fill="#ffffff" />
+          <circle cx="50" cy="75" r="6" fill="#080808" />
+
         </svg>
       </div>
     </div>
